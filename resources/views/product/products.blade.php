@@ -6,6 +6,11 @@
 <a href="{{url('/products/create')}}" type="button" class="mb-2 btn btn-info float-end">Add new product</a>    
 </div>
 
+@if(session()->has('status'))
+  <div class="alert alert-success" role="alert">
+    {{session()->get('status')}}
+  </div> 
+@endif
 
 <table class="table table-bordered">
     <thead>
@@ -26,8 +31,8 @@
         <td>{{$product->quantity}}</td>
         <td>
             <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-primary">Edit</button>
-                <button type="button" class="btn btn-danger">Delete</button>
+                <a href="{{url('/products/'.$product->id.'/edit')}}" type="button" class="btn btn-primary">Edit</a>
+                <a type="button" class="btn btn-danger">Delete</a>
               </div>
         </td>
       </tr>
