@@ -3,13 +3,16 @@
 @section('content')
 <div class="mt-3">
 <h2>List of products</h2>
-<a href="{{url('/products/create')}}" type="button" class="mb-2 btn btn-info float-end">Add new product</a>    
+<a href="{{url('/products/create')}}" type="button" class="float-right mb-2 text-white btn btn-success">Add new product</a>    
 </div>
 
 @if(session()->has('status'))
-  <div class="alert alert-success" role="alert">
-    {{session()->get('status')}}
-  </div> 
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{session()->get('status')}}.</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
 @endif
 
 <table class="table table-bordered">
@@ -19,7 +22,7 @@
         <th scope="col">title</th>
         <th scope="col">Amount</th>
         <th scope="col">Quantity</th>
-        <th scope="col">Actions</th>
+        <th scope="col" class="text-center">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -30,7 +33,7 @@
         <td>{{$product->amount}}</td>
         <td>{{$product->quantity}}</td>
         <td>
-            <div class="btn-group" role="group" aria-label="Basic example">
+            <div class="float-right btn-group" role="group" aria-label="Basic example">
                 <a href="{{url('/products/'.$product->id.'/edit')}}" type="button" class="btn btn-primary">Edit</a>
                 <a type="button" class="btn btn-danger">Delete</a>
               </div>
