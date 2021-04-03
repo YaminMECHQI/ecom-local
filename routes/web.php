@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,6 @@ Route::put('/products/{id}/update', [ProductController::class,'update']);
 Route::get('/products/{id}', [ProductController::class,'show']);
 Route::delete('/products/{id}', [ProductController::class,'delete']);
 
-
+Route::resource('/categories',CategoryController::class);
 
 
