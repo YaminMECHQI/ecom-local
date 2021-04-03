@@ -35,7 +35,11 @@
         <td>
             <div class="float-right btn-group" role="group" aria-label="Basic example">
                 <a href="{{url('/products/'.$product->id.'/edit')}}" type="button" class="btn btn-primary">Edit</a>
-                <a type="button" class="btn btn-danger">Delete</a>
+                <form method="POST" action="{{ url('/products/'.$product->id) }}">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
               </div>
         </td>
       </tr>

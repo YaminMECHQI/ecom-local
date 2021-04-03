@@ -65,4 +65,14 @@ class ProductController extends Controller
 
         return redirect('products');
     }
+
+    public function delete(Request $request,$id){
+        
+        $product = Product::findOrFail($id);
+        $product->delete();
+
+        $request->session()->flash('status', 'Task Delete was successful!');
+
+        return redirect('products');
+    }
 }
