@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Barryvdh\Debugbar\Facade as Debugbar;
 
 class ProductController extends Controller
 {
@@ -44,6 +45,7 @@ class ProductController extends Controller
 
     public function edit($id){
         $product = Product::findOrFail($id);
+        Debugbar::info($product);
         return view('product.edit',['product'=>$product]);
     }
 

@@ -1,0 +1,42 @@
+Category{
+    id: number
+    name: string
+}
+
+Product{
+    id: number
+    title: string
+    amount: number
+    quantity: number
+    category_id: number
+    suplyer_id: number
+}
+
+User{
+    id: number
+    name: string
+    email: string
+}
+
+Profile{
+    id: number
+    status: string
+    user_id: number
+}
+
+Commande{
+    id
+    user_id
+}
+
+ProductCommande{
+    id
+    product_id
+    commande_id
+}
+
+Suplyer{
+    id
+    name
+    email
+}
