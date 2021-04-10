@@ -13,3 +13,11 @@
     <input value="{{old('quantity',$product->quantity ?? null)}}" type="text" class="form-control" name="quantity" id="quantity">
     @error('quantity') <span class="text-danger">{{ $message }}</span> @enderror
 </div>
+<div class="mb-3">
+    <label for="category" class="form-label">Category</label>
+      <select class="form-control" name="category_id" id="category">
+        @foreach($categories as $category)
+        <option value="{{$category->id}}">{{$category->name}}</option>
+        @endforeach
+      </select>
+</div>

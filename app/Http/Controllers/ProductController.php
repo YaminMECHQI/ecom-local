@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Barryvdh\Debugbar\Facade as Debugbar;
 
@@ -21,7 +22,8 @@ class ProductController extends Controller
     }
 
     public function create(){
-        return view('product.create');
+        $categories = Category::all();
+        return view('product.create',['categories'=>$categories]);
     }
 
     public function store(Request $request){
@@ -35,6 +37,7 @@ class ProductController extends Controller
         $product->title = $request->input('title');
         $product->amount = $request->input('amount');
         $product->quantity = $request->input('quantity');
+        $product->category_id = $request->input('category_id');
 
         $product->save();
 

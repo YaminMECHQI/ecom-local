@@ -22,6 +22,7 @@
         <th scope="col">title</th>
         <th scope="col">Amount</th>
         <th scope="col">Quantity</th>
+        <th scope="col">Category</th>
         <th scope="col" class="text-center">Actions</th>
       </tr>
     </thead>
@@ -32,6 +33,7 @@
         <td>{{$product->title}}</td>
         <td>{{$product->amount}}</td>
         <td>{{$product->quantity}}</td>
+        <td>{{$product->category->name}}</td>
         <td>
             <div class="float-right btn-group" role="group" aria-label="Basic example">
                 <a href="{{url('/products/'.$product->id.'/edit')}}" type="button" class="btn btn-primary">Edit</a>

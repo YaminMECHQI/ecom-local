@@ -10,16 +10,17 @@ use Barryvdh\Debugbar\Facade as Debugbar;
 class UserController extends Controller
 {
     public function index(){
+
         $user = User::find(1);
-        Debugbar::info($user->profile);
+        //Debugbar::info($user->profile);
 
         $profile = Profile::find(1);
-        Debugbar::info($profile->user);
+        //Debugbar::info($profile->user);
 
-        $user = User::find(1);
+        $user = User::find(1); // Lazy
         Debugbar::info($user);
 
-        $user = User::with('profile')->find(1);
+        $user = User::with('profile')->find(1); // Eager
         Debugbar::info($user);
 
         return view('users.index');

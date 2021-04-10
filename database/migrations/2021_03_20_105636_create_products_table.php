@@ -17,6 +17,8 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('title');
             $table->double('amount', 8, 2);
+            $table->integer('quantity');
+            $table->integer('category_id')->unsigned()->index();
             $table->timestamps();
         });
     }
