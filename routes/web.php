@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/commande', [CommandeController::class,'index']);
+Route::resource('/commandes', CommandeController::class);
 
 Route::get('/products', [ProductController::class,'index']);
 Route::get('/products/create', [ProductController::class,'create']);
